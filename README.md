@@ -72,19 +72,18 @@ Las fotos y gráficos provienen de la página pública de Facebook de Gloss & Gl
 - `unas-florales.jpg`: nail art floral en rojo.
 - `maquillaje-artistico.jpg`: maquillaje artístico con cristales.
 
-## Publicación en Cloudflare Pages
+## Publicación en Cloudflare Workers
 
-El proyecto está configurado como exportación estática. `npm run build` genera la carpeta `out/`, que es la que se publica en Cloudflare Pages.
+El proyecto está configurado como exportación estática y se publica con **Cloudflare Workers Static Assets**. `npm run build` genera la carpeta `out/`, y `wrangler.toml` indica que esa carpeta contiene los archivos del sitio.
 
 ### Opción 1: conectar GitHub con Cloudflare
 
 1. Sube el proyecto a GitHub.
-2. En Cloudflare, entra a **Workers & Pages → Create → Pages → Connect to Git**.
+2. En Cloudflare, entra a **Workers & Pages → Create → Workers → Connect to Git**.
 3. Selecciona el repositorio.
 4. Usa estos valores:
-   - **Framework preset:** Next.js (Static HTML Export)
    - **Build command:** `npm run build`
-   - **Build output directory:** `out`
+   - **Deploy command:** `npx wrangler deploy`
    - **Variable de entorno:** `NODE_VERSION=22`
    - **Variable de entorno:** `NEXT_PUBLIC_SITE_URL=https://tudominio.com`
 5. Haz clic en **Deploy**.
@@ -94,16 +93,15 @@ Cada push a `main` volverá a publicar el sitio automáticamente.
 ### Opción 2: publicar manualmente con Wrangler
 
 ```bash
-npm run build
-npx wrangler pages deploy out --project-name gloss-glam-estudio
+npm run deploy
 ```
 
-La primera vez te pedirá iniciar sesión en Cloudflare. Al terminar te dará una URL `*.pages.dev`.
+Ese comando ejecuta el build y luego `npx wrangler deploy`. La primera vez te pedirá iniciar sesión en Cloudflare. Al terminar te dará una URL `*.workers.dev`.
 
 ### Dominio propio
 
-1. En el proyecto de Cloudflare Pages, entra a **Custom domains**.
-2. Agrega tu dominio.
+1. En el Worker, entra a **Settings → Domains & Routes**.
+2. Agrega tu dominio personalizado.
 3. Si el dominio está en Cloudflare, el DNS se configura automáticamente. Si no, crea el CNAME que te indique Cloudflare.
 
 > **Nota:** este proyecto está dentro de OneDrive. Para evitar conflictos de sincronización, excluye `node_modules`, `.next` y `out`, o mueve el proyecto a una carpeta local.
