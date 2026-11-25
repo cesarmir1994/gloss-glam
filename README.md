@@ -15,8 +15,10 @@ Abre `http://localhost:3000`.
 
 ```bash
 npm run build
-npm start
+npx serve out
 ```
+
+`npm run build` genera la carpeta `out/` con el sitio estático listo para Cloudflare Pages.
 
 ## Páginas
 
@@ -56,7 +58,7 @@ El logotipo oficial está en `public/images/logo.jpeg` y se muestra en la barra 
 ## Datos que conviene confirmar
 
 - **Horarios:** el sitio indica atención con cita previa porque la página de Facebook no publica horarios exactos.
-- **Dominio:** `content/site.ts` usa `https://glossandglamestudio.com` como marcador. Define `NEXT_PUBLIC_SITE_URL` en Vercel (o en un archivo `.env.local`) con el dominio real antes de desplegar.
+- **Dominio:** `content/site.ts` usa `https://glossandglamestudio.com` como marcador. Define `NEXT_PUBLIC_SITE_URL` en Cloudflare (o en un archivo `.env.local`) con el dominio real antes de compilar.
 - **Instagram:** no se incluyó porque no se confirmó una cuenta oficial.
 
 ## Imágenes
@@ -70,18 +72,45 @@ Las fotos y gráficos provienen de la página pública de Facebook de Gloss & Gl
 - `unas-florales.jpg`: nail art floral en rojo.
 - `maquillaje-artistico.jpg`: maquillaje artístico con cristales.
 
-## Despliegue en Vercel
+## Publicación en Cloudflare Pages
+
+El proyecto está configurado como exportación estática. `npm run build` genera la carpeta `out/`, que es la que se publica en Cloudflare Pages.
+
+### Opción 1: conectar GitHub con Cloudflare
 
 1. Sube el proyecto a GitHub.
-2. Importa el repositorio en [vercel.com](https://vercel.com).
-3. Vercel detecta Next.js automáticamente.
-4. Configura el dominio en **Settings → Domains**.
+2. En Cloudflare, entra a **Workers & Pages → Create → Pages → Connect to Git**.
+3. Selecciona el repositorio.
+4. Usa estos valores:
+   - **Framework preset:** Next.js (Static HTML Export)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+   - **Variable de entorno:** `NODE_VERSION=22`
+   - **Variable de entorno:** `NEXT_PUBLIC_SITE_URL=https://tudominio.com`
+5. Haz clic en **Deploy**.
 
-> **Nota:** este proyecto está dentro de OneDrive. Para evitar conflictos de sincronización, excluye `node_modules` y `.next` o mueve el proyecto a una carpeta local.
+Cada push a `main` volverá a publicar el sitio automáticamente.
+
+### Opción 2: publicar manualmente con Wrangler
+
+```bash
+npm run build
+npx wrangler pages deploy out --project-name gloss-glam-estudio
+```
+
+La primera vez te pedirá iniciar sesión en Cloudflare. Al terminar te dará una URL `*.pages.dev`.
+
+### Dominio propio
+
+1. En el proyecto de Cloudflare Pages, entra a **Custom domains**.
+2. Agrega tu dominio.
+3. Si el dominio está en Cloudflare, el DNS se configura automáticamente. Si no, crea el CNAME que te indique Cloudflare.
+
+> **Nota:** este proyecto está dentro de OneDrive. Para evitar conflictos de sincronización, excluye `node_modules`, `.next` y `out`, o mueve el proyecto a una carpeta local.
 
 ## SEO
 
 - Metadatos por página y Open Graph.
 - Datos estructurados `BeautySalon`.
 - `sitemap.xml` y `robots.txt` automáticos.
-- Imágenes optimizadas con `next/image`.
+- Imágenes servidas directamente desde `public/images/` (exportación estática).

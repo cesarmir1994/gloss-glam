@@ -86,8 +86,8 @@ export default function AboutPage() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
               <Image
-                src="/images/reel-07.jpg"
-                alt="Interior de Gloss & Glam Estudio durante una cita"
+                src="/images/hero-peinado.jpg"
+                alt="Cabello con ondas suaves peinado en Gloss & Glam Estudio"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "npx serve out",
+    "deploy": "next build && npx wrangler pages deploy out --project-name gloss-glam-estudio"
   },
   "keywords": [],
   "author": "Gloss & Glam Estudio",
