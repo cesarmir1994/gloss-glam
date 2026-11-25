@@ -25,7 +25,6 @@ export const site = {
     { label: "Lunes a sábado", value: "Atención con cita previa" },
     { label: "Domingo", value: "Cerrado" },
   ],
-  priceRange: "$$",
 } as const;
 
 export function whatsappLink(message: string) {

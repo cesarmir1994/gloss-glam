@@ -10,7 +10,6 @@ import {
 
 import SectionHeading from "@/components/SectionHeading";
 import { gallery } from "@/content/gallery";
-import { promos } from "@/content/promos";
 import { services } from "@/content/services";
 import {
   defaultWhatsappMessage,
@@ -93,8 +92,8 @@ export default function HomePage() {
             />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-[0_35px_70px_-35px_rgba(88,20,32,0.55)]">
               <Image
-                src="/images/reel-05.jpg"
-                alt="Peinado de ondas largas realizado en Gloss & Glam Estudio"
+                src="/images/hero-peinado.jpg"
+                alt="Cabello largo con ondas suaves peinado en Gloss & Glam Estudio"
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 45vw"
@@ -179,14 +178,8 @@ export default function HomePage() {
 
                   <ul className="mt-5 space-y-2.5 border-t border-burgundy/10 pt-4 text-sm">
                     {category.items.slice(0, 3).map((service) => (
-                      <li
-                        key={service.name}
-                        className="flex items-baseline justify-between gap-4"
-                      >
-                        <span className="text-ink/80">{service.name}</span>
-                        <span className="shrink-0 font-medium text-burgundy">
-                          {service.from ? "Desde " : ""}${service.price}
-                        </span>
+                      <li key={service.name} className="text-ink/80">
+                        {service.name}
                       </li>
                     ))}
                   </ul>
@@ -308,64 +301,6 @@ export default function HomePage() {
                   {item.label}
                 </span>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Promociones */}
-      <section className="border-y border-burgundy/10 bg-sand/55 py-20 sm:py-28">
-        <div className="section-shell">
-          <SectionHeading
-            align="center"
-            eyebrow="Promociones"
-            title={
-              <>
-                Beneficios para{" "}
-                <span className="font-script text-burgundy">tu próxima cita</span>
-              </>
-            }
-            description="Pregunta por las promociones vigentes al reservar. Los valores y la disponibilidad se confirman por WhatsApp."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {promos.map((promo) => (
-              <article
-                key={promo.title}
-                className="group overflow-hidden rounded-[1.75rem] border border-burgundy/10 bg-cream"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={promo.image}
-                    alt={promo.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-[1.03]"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-burgundy shadow">
-                    {promo.price}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl font-medium text-ink">
-                    {promo.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {promo.description}
-                  </p>
-                  <a
-                    href={whatsappLink(
-                      `Hola Gloss & Glam Estudio, me interesa la promoción "${promo.title}". ¿Sigue disponible?`,
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-burgundy transition hover:text-burgundy-dark"
-                  >
-                    Consultar promoción
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                  </a>
-                </div>
-              </article>
             ))}
           </div>
         </div>

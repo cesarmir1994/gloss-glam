@@ -165,7 +165,7 @@ export default function ContactPage() {
                   Síguenos
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Mira nuestros trabajos y promociones en Facebook.
+                  Mira nuestros trabajos en Facebook.
                 </p>
                 <a
                   href={site.facebook}

@@ -4,7 +4,6 @@ import { Cormorant_Garamond, Great_Vibes, Jost } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
 
 import "./globals.css";
@@ -60,7 +59,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: "/images/reel-05.jpg",
+        url: "/images/hero-peinado.jpg",
         width: 541,
         height: 960,
         alt: "Peinado realizado en Gloss & Glam Estudio",
@@ -71,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} | Belleza en Baños`,
     description: site.description,
-    images: ["/images/reel-05.jpg"],
+    images: ["/images/hero-peinado.jpg"],
   },
   robots: {
     index: true,
@@ -92,10 +91,9 @@ const jsonLd = {
   alternateName: site.legalName,
   description: site.description,
   url: site.url,
-  image: `${site.url}/images/reel-05.jpg`,
+  image: `${site.url}/images/hero-peinado.jpg`,
   telephone: site.phoneHref,
   email: site.email,
-  priceRange: site.priceRange,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -104,23 +102,6 @@ const jsonLd = {
     addressCountry: "EC",
   },
   sameAs: [site.facebook],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Servicios de belleza",
-    itemListElement: services.flatMap((category) =>
-      category.items.map((service) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: service.name,
-          description: service.description,
-          category: category.name,
-        },
-        priceCurrency: "USD",
-        price: service.price,
-      })),
-    ),
-  },
 };
 
 export default function RootLayout({

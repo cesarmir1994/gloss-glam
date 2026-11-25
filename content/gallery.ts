@@ -11,11 +11,47 @@ export const galleryCategories: { id: "todas" | GalleryCategory; label: string }
   { id: "todas", label: "Todo" },
   { id: "uñas", label: "Uñas" },
   { id: "peinados", label: "Peinados" },
-  { id: "pestañas", label: "Pestañas" },
+  { id: "pestañas", label: "Pestañas y maquillaje" },
   { id: "salón", label: "El salón" },
 ];
 
 export const gallery: GalleryItem[] = [
+  {
+    src: "/images/unas-cerezas.jpg",
+    alt: "Manicura francesa con diseño de cerezas en Gloss & Glam Estudio",
+    category: "uñas",
+    label: "Francesa con cerezas",
+  },
+  {
+    src: "/images/unas-elegantes.jpg",
+    alt: "Uñas almendra con diseño elegante en tonos nude y dorado",
+    category: "uñas",
+    label: "Diseño elegante",
+  },
+  {
+    src: "/images/unas-florales.jpg",
+    alt: "Nail art floral en rojo con acabado brillante",
+    category: "uñas",
+    label: "Nail art floral",
+  },
+  {
+    src: "/images/hero-peinado.jpg",
+    alt: "Cabello largo con ondas suaves peinado en el estudio",
+    category: "peinados",
+    label: "Ondas naturales",
+  },
+  {
+    src: "/images/peinado-evento.jpg",
+    alt: "Peinado de evento con vestido rojo y corona plateada",
+    category: "peinados",
+    label: "Look de evento",
+  },
+  {
+    src: "/images/maquillaje-artistico.jpg",
+    alt: "Maquillaje artístico en tonos morados con cristales",
+    category: "pestañas",
+    label: "Maquillaje artístico",
+  },
   {
     src: "/images/reel-02.jpg",
     alt: "Peinado de ondas largas realizado en Gloss & Glam Estudio",

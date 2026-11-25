@@ -11,9 +11,9 @@ import {
 } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Servicios y precios",
+  title: "Servicios",
   description:
-    "Descubre los servicios de uñas, peinados, pestañas y maquillaje de Gloss & Glam Estudio en Baños de Agua Santa. Precios referenciales y reservas por WhatsApp.",
+    "Descubre los servicios de uñas, peinados, pestañas y maquillaje de Gloss & Glam Estudio en Baños de Agua Santa. Reserva tu cita por WhatsApp.",
   alternates: {
     canonical: "/servicios",
   },
@@ -31,7 +31,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <span className="eyebrow">
               <Sparkles size={12} aria-hidden="true" />
-              Servicios y precios
+              Servicios
             </span>
             <h1 className="display-title mt-4">
               Belleza de la cabeza a{" "}
@@ -106,18 +106,17 @@ export default function ServicesPage() {
                   eyebrow="Antes de reservar"
                   title={
                     <>
-                      Precios referenciales,{" "}
+                      Cuéntanos tu idea,{" "}
                       <span className="font-script text-burgundy">
-                        atención real
+                        nosotras nos encargamos
                       </span>
                     </>
                   }
                 />
                 <p className="mt-4 text-sm leading-relaxed text-muted">
-                  Los valores pueden variar según el largo de las uñas, el
-                  diseño, el estado del cabello o los productos que necesites.
-                  Escríbenos y te confirmamos el precio final y el tiempo
-                  estimado de tu cita.
+                  Cada cita se adapta a tu estilo y a lo que quieres lograr.
+                  Escríbenos por WhatsApp y te ayudamos a elegir el servicio
+                  ideal para ti.
                 </p>
               </div>
               <a
