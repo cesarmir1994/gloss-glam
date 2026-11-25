@@ -33,7 +33,7 @@ npx serve out
 | Qué cambiar | Archivo |
 | --- | --- |
 | Nombre, teléfono, WhatsApp, correo, dirección, horarios y redes | `content/site.ts` |
-| Servicios y duración | `content/services.ts` |
+| Servicios | `content/services.ts` |
 | Fotos y textos de la galería | `content/gallery.ts` |
 | Colores y tipografías | `app/globals.css` |
 

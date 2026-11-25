@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clock } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import type { Service } from "@/content/services";
 import { whatsappLink } from "@/content/site";
@@ -17,11 +17,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         </p>
       </div>
 
-      <div className="mt-6 flex items-center justify-between border-t border-burgundy/10 pt-4">
-        <span className="inline-flex items-center gap-1.5 text-xs text-muted">
-          <Clock size={14} aria-hidden="true" />
-          {service.duration}
-        </span>
+      <div className="mt-6 flex items-center justify-end border-t border-burgundy/10 pt-4">
         <a
           href={whatsappLink(message)}
           target="_blank"
